@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <context id="mysqlTables" targetRuntime="MyBatis3">
+        <!--注释生成配置-->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--数据库链接地址账号密码-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql:///movie_ticket"
+                        userId="root" password="123456">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--实体类配置-->
+        <javaModelGenerator targetPackage="cn.uu710.pojo" targetProject="src/main/java">
+<!--            <property name="enableSubPackages" value="false"/>-->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--映射文件的配置-->
+        <sqlMapGenerator targetPackage="cn.uu710.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!--mapper文件位置-->
+        <javaClientGenerator targetPackage="cn.uu710.mapper" targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!--生成所有的对应表及类名，百分号默认为把所有的表都自动生成，实体类默认首字母大写-->
+<!--        <table tableName="%" enableCountByExample="true"
+               enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true"></table>-->
+
+        <!--单独生成每一个对应表及类名-->
+        <table tableName="moviecinema" domainObjectName="Moviecinema" enableCountByExample="true"
+               enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true"></table>
+
+
+    </context>
+
+</generatorConfiguration>
